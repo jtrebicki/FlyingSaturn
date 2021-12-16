@@ -1,4 +1,4 @@
-main.o: F:/devkitPro/projects/nds/t_testproject/source/main.cpp \
+main.o: F:/devkitPro/projects/nds/flyingsaturn/source/main.cpp \
  F:/devkitPro/libnds/include/nds.h \
  F:/devkitPro/libnds/include/nds/libversion.h \
  F:/devkitPro/libnds/include/nds/ndstypes.h \

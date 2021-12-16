@@ -18,7 +18,7 @@ Author : Jonas Trebicki
 
 
 //Main Class for the game
-class game {
+class Game {
 	
 //the class for the projectile
 public: class Projectile {
@@ -724,11 +724,11 @@ void drawLetter(int x, int y, char letter) {
 	
 	}
 }
-
+};
 //main method
 int main(void) {
 	//create a game object
-	epicGame game;
+	Game game;
 	//run the game objects main method
 	game.main();
 }
