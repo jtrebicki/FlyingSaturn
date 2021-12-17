@@ -55,7 +55,7 @@ You control the red square. You have to press A or B repeatedly to fly up. If yo
 
 ### Additional Interesting Ressources
 
-DsBuff: To change ROM information (Name, Icon) to be seen in https://www.romhacking.net/utilities/1214/
+DsBuff: To change ROM information (Name, Icon) to be seen in the homebrew launcher https://www.romhacking.net/utilities/1214/
 
 PolyMars' video that inspired me for this project: https://www.youtube.com/watch?v=h7pq9hUMnog
 
