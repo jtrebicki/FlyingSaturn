@@ -23,6 +23,42 @@ A text snippet of the libgl2d Installation:
 > c:/devkitPro/libnds/lib/libgl2d.a
 > ```
 
+#### Specifics
+
+###### Windows
+
+Just use the graphic installer (https://github.com/devkitPro/installer/releases) then 
+
+> -  Windows 7 and earlier: Start -> All Programs -> devkitPro -> MSYS
+> -  Windows 8 and 8.1: Right click on the Start screen and select 'All Apps'. You should find MSYS there.
+> -  Windows 10 (pre-Anniversary Update): Start -> All Apps -> devkitPro -> MSYS
+> -  Windows 10 (post-Anniversary Update): Start -> devkitPro -> MSYS
+
+(snippet from https://devkitpro.org/wiki/Getting_Started)
+
+##### MACOS and UNIX-like plattforms
+
+I did not personally try this, so try at your own risk!
+
+###### MacOS
+
+Snippet from https://devkitpro.org/wiki/Getting_Started
+
+> -  To get the Xcode command line tools run `xcode-select --install` from Terminal.
+> -  Use the [pkg installer](https://github.com/devkitPro/pacman/releases/latest) to install [devkitPro pacman](https://devkitpro.org/wiki/devkitPro_pacman).
+> -  Reboot your mac to get environment set.
+> -  Use dkp-pacman to install your chosen tools as per Unix like platforms below.
+
+###### Unix-like plattforms
+
+Follow instructions: https://devkitpro.org/wiki/devkitPro_pacman
+
+###### Using dkp-pacman
+
+You will need the nds-dev package
+
+>  **sudo (dkp-)pacman -S nds-dev**
+
 ### How to build
 
 Use `make` in the projects root folder to use the provided Makefile.
