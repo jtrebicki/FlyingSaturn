@@ -1,0 +1,6 @@
+# Wir wollen kein Build haben
+build/
+
+
+# Und keine Binaries
+*.elf
