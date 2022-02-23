@@ -9,6 +9,9 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time functions */
 
+#include "main.h"       /* meine klassen */
+
+using namespace JGame;
 /*
 A simple game for the NDS
 thanks to PolyMars for the inspiration
@@ -20,23 +23,8 @@ Author : Jonas Trebicki
 //Main Class for the game
 class Game {
 	
-//the class for the projectile
-public: class Projectile {
-public:
-	float posX;
-	float posY;
-	float size=12;
-	float p_spd=0;
-};
 
-//the class for an enemy
-public: class Enemy {
-public:
-	float X;
-	float Y;
-	float size;
-	float spd=0;
-};
+
 
 //main method of the class
 public: int main(void) {
@@ -68,25 +56,16 @@ public: int main(void) {
 	proj.posY=posY;
 	
 	//We are creating an enemy array with a size of 4 (we will have 4 enemies at the same time)
-	Enemy enemy[4];
+	int enemies = 4;
+	Enemy enemy[enemies];
 	
 
 	//this could probably be wrapped in a method... (init_enemy(enemy[i]);
 	//going through all 4 enemie objects and assigning them an random size, starting point, height and speed
-	for(int i=0; i < 4; i++) {
-		enemy[i].size=(rand() % 24 + 8);
-		if((rand() % 2 + 1)==1) {
-		enemy[i].X = 0;
-		enemy[i].spd=+(rand() % 3);
-		} else {
-		enemy[i].X = 256;
-		enemy[i].spd=-(rand() % 3);
-		}
-		enemy[i].Y = (rand() % 192);
 
+	for(int i=0; i < enemies; i++) {
+		enemy[i].reset();
 	}
-	
-	
 	
 	//Standard Commands needed to make the Screen Output Work (see libgl2d documentation)
 	videoSetMode(MODE_5_3D);
@@ -114,7 +93,7 @@ public: int main(void) {
 		glBoxFilled(proj.posX, proj.posY, proj.posX+proj.size, proj.posY+proj.size, RGB15(12, 12, 12));
 		
 		//All the enemies
-		for(int i=0; i < 4; i++) {
+		for(int i=0; i < enemies; i++) {
 			glBoxFilled(enemy[i].X, enemy[i].Y, enemy[i].X+enemy[i].size, enemy[i].Y+enemy[i].size, RGB15(160, 51, 61));
 		}
 		
@@ -301,26 +280,15 @@ public: int main(void) {
 		//Enemy Code
 		//Enemy Position changes depending on their speed
 	
-		for(int i=0; i < 4; i++) {
+		for(int i=0; i < enemies; i++) {
 			enemy[i].X += enemy[i].spd;
 		}
 		
 		//If an enemy leaves the screen, reset them (same code as the init code)
-		for(int i=0; i < 4; i++) {
+		for(int i=0; i < enemies; i++) {
 			if( (enemy[i].X < -16) || (enemy[i].X > 272) ) {
-						enemy[i].size=(rand() % 24 + 8);
-						if((rand() % 2 + 1)==1) {
-						enemy[i].X = 0;
-						enemy[i].spd=+(rand() % 3);
-						} else {
-						enemy[i].X = 256;
-						enemy[i].spd=-(rand() % 3);
-						}
-						
-						if (enemy[i].spd==0) {
-							enemy[i].spd=2.5;
-						}
-						enemy[i].Y = (rand() % 192);
+						enemy[i].reset();
+				
 			}
 		}
 		
@@ -348,20 +316,8 @@ public: int main(void) {
 				gameOver=true;
 			}
 			
-			//Again, the init code of the enemy (reset them after hitting the player)
-						enemy[i].size=(rand() % 24 + 8);
-						if((rand() % 2 + 1)==1) {
-						enemy[i].X = 0;
-						enemy[i].spd=+(rand() % 3);
-						} else {
-						enemy[i].X = 256;
-						enemy[i].spd=-(rand() % 3);
-						}
-						
-						if (enemy[i].spd==0) {
-							enemy[i].spd=2.5;
-						}
-						enemy[i].Y = (rand() % 192);
+
+						enemy[i].reset();
 		}
 		}
 		
@@ -377,20 +333,8 @@ public: int main(void) {
 			//The score gets increasted
 			score += 1;
 			
-			//Enemy gets resetted again
-						enemy[i].size=(rand() % 24 + 8);
-						if((rand() % 2 + 1)==1) {
-						enemy[i].X = 0;
-						enemy[i].spd=+(rand() % 3);
-						} else {
-						enemy[i].X = 256;
-						enemy[i].spd=-(rand() % 3);
-						}
-						
-						if (enemy[i].spd==0) {
-							enemy[i].spd=2.5;
-						}
-						enemy[i].Y = (rand() % 192);
+		
+						enemy[i].reset();
 		}
 		}
 		} else {
