@@ -6,6 +6,8 @@ A NDS game by Jonas Trebicki
 
 After watching a youtube video (see additional ressources), I was inspired to program a game for the DS. With a simple graphics library that is able to draw squares I made a little arcade game.
 
+(I decided to release it now (2023-11-05) after making it in 2021. My code probably isnt the best and I dont really have knowledge about the NDS Kernel/Framework, which is why I didnt want to release it, so be warned when using this. Maybe it can help someone though, I struggled recently with doing graphics on the ds and was thankful for every example I could find. I implemented a simple game logic and used a header file for own classes)
+
 ### Dependencies/Deployment
 
 You will need to install devkitPro: https://devkitpro.org/wiki/Getting_Started
